@@ -1,0 +1,11 @@
+gradle:
+  wrapper: "3.5"
+  distribution: "all"
+
+android:
+  sdk:
+    compileSdk: "25"
+    targetSdk: "25"
+    minSdk: "16"
+  buildTools: "25.0.3"
+  plugin: "2.4.0-alpha7"
