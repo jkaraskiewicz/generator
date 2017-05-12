@@ -1,86 +1,64 @@
 entities:
-  - name: "kotlin"
-    version: "1.1.2-3"
-    dependencies:
-      root:
-        classpath:
-          - "org.jetbrains.kotlin:kotlin-gradle-plugin"
-      module:
-        plugin:
-          - "kotlin-android"
-          - "kotlin-android-extensions"
-        compile:
-          - "org.jetbrains.kotlin:kotlin-stdlib"
-
   - name: "support"
     version: "25.3.1"
     dependencies:
-      module:
-        compile:
-          - "com.android.support:appcompat-v7"
-          - "com.android.support:support-annotations"
+      compile:
+        - "com.android.support:appcompat-v7"
+        - "com.android.support:support-annotations"
 
   - name: "dagger"
     version: "2.10"
     dependencies:
-      module:
-        compile:
-          - "com.google.dagger:dagger"
-        annotationProcessor:
-          - "com.google.dagger:dagger-compiler"
+      compile:
+        - "com.google.dagger:dagger"
+      annotationProcessor:
+        - "com.google.dagger:dagger-compiler"
 
   - name: "butterknife"
     version: "8.5.1"
     dependencies:
-      module:
-        compile:
-          - "com.jakewharton:butterknife"
-        annotationProcessor:
-          - "com.jakewharton:butterknife-compiler"
+      compile:
+        - "com.jakewharton:butterknife"
+      annotationProcessor:
+        - "com.jakewharton:butterknife-compiler"
 
   - name: "timber"
     version: "4.5.1"
     dependencies:
-      module:
-        compile:
-          - "com.jakewharton.timber:timber"
+      compile:
+        - "com.jakewharton.timber:timber"
 
   - name: "rxjava"
     version: "2.1.0"
     dependencies:
-      module:
-        compile:
-          - "io.reactivex.rxjava2:rxjava"
+      compile:
+        - "io.reactivex.rxjava2:rxjava"
 
   - name: "rxandroid"
     version: "2.0.1"
     dependencies:
-      module:
-        compile:
-          - "io.reactivex.rxjava2:rxandroid"
+      compile:
+        - "io.reactivex.rxjava2:rxandroid"
 
   - name: "rxbindings"
     version: "2.0.0"
     dependencies:
-      module:
-        compile:
-          - "com.jakewharton.rxbinding2:rxbinding"
-          - "com.jakewharton.rxbinding2:rxbinding-support-v4"
-          - "com.jakewharton.rxbinding2:rxbinding-appcompat-v7"
-          - "com.jakewharton.rxbinding2:rxbinding-kotlin"
-          - "com.jakewharton.rxbinding2:rxbinding-support-v4-kotlin"
-          - "com.jakewharton.rxbinding2:rxbinding-appcompat-v7-kotlin"
+      compile:
+        - "com.jakewharton.rxbinding2:rxbinding"
+        - "com.jakewharton.rxbinding2:rxbinding-support-v4"
+        - "com.jakewharton.rxbinding2:rxbinding-appcompat-v7"
+        - "com.jakewharton.rxbinding2:rxbinding-kotlin"
+        - "com.jakewharton.rxbinding2:rxbinding-support-v4-kotlin"
+        - "com.jakewharton.rxbinding2:rxbinding-appcompat-v7-kotlin"
 
   - name: "inject"
     version: "1"
     dependencies:
-      module:
-        compile:
-          - "javax.inject:javax.inject"
+      compile:
+        - "javax.inject:javax.inject"
 
   - name: "annotation-api"
     version: "1.2"
     dependencies:
-      module:
-        provided:
-          - "javax.annotation:javax.annotation-api"
+      provided:
+        - "javax.annotation:javax.annotation-api"
