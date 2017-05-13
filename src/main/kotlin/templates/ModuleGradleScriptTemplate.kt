@@ -1,19 +1,16 @@
 package templates
 
-import generator.ModuleGenerator
-import models.standard.StandardConfig
+import generator.ModuleGradleScriptGenerator
+import util.GeneratorConfig
 
-fun templateModuleGradle(
-        moduleGenerator: ModuleGenerator,
-        standardConfig: StandardConfig
-) = """
+fun templateModuleGradle(config: GeneratorConfig, generator: ModuleGradleScriptGenerator) = """
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion ${standardConfig.android.sdk.compileSdk}
-    buildToolsVersion ${standardConfig.android.buildTools}
+    compileSdkVersion ${config.standardConfig.android.sdk.compileSdk}
+    buildToolsVersion "${config.standardConfig.android.buildTools}"
 
     repositories {
         mavenCentral()
@@ -23,9 +20,9 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.karaskiewicz.configgenerator"
-        minSdkVersion ${standardConfig.android.sdk.minSdk}
-        targetSdkVersion ${standardConfig.android.sdk.targetSdk}
+        applicationId "${config.applicationId}"
+        minSdkVersion ${config.standardConfig.android.sdk.minSdk}
+        targetSdkVersion ${config.standardConfig.android.sdk.targetSdk}
         versionCode 1
         versionName "1.0"
     }
@@ -49,6 +46,6 @@ android {
 }
 
 dependencies {
-    ${moduleGenerator.generateDependencies()}
+    ${generator.generateDependencies()}
 }
-"""
+""".trimStart()

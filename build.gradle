@@ -4,6 +4,7 @@ version '1.0-SNAPSHOT'
 buildscript {
     ext.kotlin_version = '1.1.2-2'
     ext.jackson_version = '2.9.0.pr3'
+    ext.argparser_version = '2.0.0'
 
     repositories {
         mavenCentral()
@@ -27,4 +28,6 @@ dependencies {
     compile "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
     compile "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"
     compile "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jackson_version"
+
+    compile "com.xenomachina:kotlin-argparser:$argparser_version"
 }

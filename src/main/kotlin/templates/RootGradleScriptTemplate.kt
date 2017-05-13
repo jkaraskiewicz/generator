@@ -1,17 +1,15 @@
 package templates
 
-import models.standard.StandardConfig
+import util.GeneratorConfig
 
-fun templateRootGradle(
-        standardConfig: StandardConfig
-) = """
+fun templateRootGradle(config: GeneratorConfig) = """
 buildscript {
     repositories {
         jcenter()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:${standardConfig.android.plugin}"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${standardConfig.android.kotlin}"
+        classpath "com.android.tools.build:gradle:${config.standardConfig.android.plugin}"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${config.standardConfig.android.kotlin}"
     }
 }
 
@@ -28,10 +26,10 @@ allprojects {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = "${standardConfig.gradle.wrapper}"
+    gradleVersion = "${config.standardConfig.gradle.wrapper}"
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-"""
+""".trimStart()
