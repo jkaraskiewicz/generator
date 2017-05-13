@@ -3,6 +3,7 @@ import commands.CommandsDispatcher
 import filesystem.FileSystemGenerator
 import parser.parseLibraries
 import parser.parseStandard
+import util.DependencyEntitiesManager
 import util.GeneratorConfig
 import java.nio.file.Paths
 
@@ -15,6 +16,9 @@ fun main(args: Array<String>) {
             applicationId = argsParser.applicationId,
             rootProjectDirPath = argsParser.projectRootDir
     )
+
+    val extraGradleDependencies = argsParser.extraGradleDependency
+    DependencyEntitiesManager(config.librariesConfig).insertExternalDependencies(extraGradleDependencies)
 
     val fileSystemGenerator = FileSystemGenerator(config)
     fileSystemGenerator.generate()

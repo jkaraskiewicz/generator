@@ -18,7 +18,6 @@ fun parseStandard(path: Path) = Files.newBufferedReader(path).use {
     mapper.readValue(it, StandardConfig::class.java)
 }
 
-
 fun parseLibraries(path: Path) = Files.newBufferedReader(path).use {
     mapper.readValue(it, LibrariesConfig::class.java)
 }

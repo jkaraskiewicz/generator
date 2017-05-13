@@ -1,5 +1,5 @@
 package models.libraries
 
 data class LibrariesConfig(
-        val entities: List<Entity>
+        val entities: MutableList<Entity>
 )
