@@ -11,7 +11,6 @@ fun templateAndroidManifest(config: GeneratorConfig) = """
             android:label="@string/app_name"
             android:name=".Application"
             android:icon="@mipmap/ic_launcher"
-            android:roundIcon="@mipmap/ic_launcher_round"
             android:theme="@style/AppTheme">
         <activity
                 android:name=".main.MainActivity"

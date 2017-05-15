@@ -33,3 +33,7 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 """.trimStart()
+
+fun templateSettingsGradle() = """
+include ':app'
+""".trimStart()

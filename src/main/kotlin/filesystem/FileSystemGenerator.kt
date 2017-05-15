@@ -59,6 +59,7 @@ class FileSystemGenerator(private val config: GeneratorConfig) {
         generateActivityFile()
         generateAndroidManifest()
         prepareStandardResources()
+        prepareActivityLayout()
     }
 
     private fun generateAndroidManifest() {
@@ -84,6 +85,9 @@ class FileSystemGenerator(private val config: GeneratorConfig) {
     private fun generateRootGradleScript() {
         val rootGradleScriptFile = File("$rootDirPath/build.gradle")
         rootGradleScriptFile.writeText(rootGradleScriptGenerator.generate())
+
+        val settingsGradleScriptFile = File("$rootDirPath/settings.gradle")
+        settingsGradleScriptFile.writeText(templateSettingsGradle())
     }
 
     private fun generateModuleGradleScript() {
@@ -104,5 +108,10 @@ class FileSystemGenerator(private val config: GeneratorConfig) {
         val launcherPath = Paths.get("assets/files/ic_launcher.png")
         val targetLauncherPath = Paths.get("$resDirPath/mipmap-anydpi/ic_launcher.png")
         Files.copy(launcherPath, targetLauncherPath)
+    }
+
+    private fun prepareActivityLayout() {
+        val activityMainLayoutFile = File("$resDirPath/layout/activity_main.xml")
+        activityMainLayoutFile.writeText(templateAndroidActivityLayout())
     }
 }
