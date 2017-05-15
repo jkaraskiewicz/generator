@@ -6,8 +6,10 @@ import java.io.File
 import java.io.InputStreamReader
 import java.nio.file.Paths
 
-class CommandsExecutor(private val config: GeneratorConfig) {
-
+class CommandsExecutor(
+        private val config: GeneratorConfig,
+        private val verboseMode: Boolean
+) {
     fun exec(command: String) = launchProcess(createProcess(command, Paths.get(config.rootProjectDirPath).toFile()))
 
     fun exec(vararg commands: String) = launchProcess(createProcess(commands, Paths.get(config.rootProjectDirPath).toFile()))
@@ -21,7 +23,7 @@ class CommandsExecutor(private val config: GeneratorConfig) {
     }
 
     private fun launchProcess(process: Process) {
-        process.apply { waitFor() }.let {
+        process.apply { waitFor() }.takeIf { verboseMode }?.let {
             val reader = BufferedReader(InputStreamReader(it.inputStream))
             reader.lines().forEach { println(it) }
         }

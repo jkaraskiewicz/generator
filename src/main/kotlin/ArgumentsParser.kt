@@ -12,4 +12,6 @@ class ArgumentsParser(parser: ArgParser) {
     val projectRootDir by parser.storing("-d", "--directory", help = "Path to root directory for the project")
 
     val applicationId by parser.storing("-p", "--package", help = "ApplicationId or package name")
+
+    val verbose by parser.flagging("-v", "--verbose", help = "Verbose mode").default(false)
 }

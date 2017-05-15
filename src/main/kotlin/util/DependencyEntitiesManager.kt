@@ -8,6 +8,8 @@ class DependencyEntitiesManager(private val librariesConfig: LibrariesConfig) {
 
     fun insertExternalDependencies(dependencies: List<String>) {
         dependencies.forEach {
+            ConsoleLogger.log("Adding extra dependency: $it")
+
             val dependency = it.substringBeforeLast(':')
             val split = it.split(':')
 

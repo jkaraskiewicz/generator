@@ -3,6 +3,7 @@ package filesystem
 import generator.ModuleGradleScriptGenerator
 import generator.RootGradleScriptGenerator
 import templates.*
+import util.ConsoleLogger
 import util.GeneratorConfig
 import java.io.File
 import java.nio.file.Files
@@ -48,9 +49,12 @@ class FileSystemGenerator(private val config: GeneratorConfig) {
     }
 
     private fun generateFiles() {
+        ConsoleLogger.log("Generating gradle scripts...")
         generateRootGradleScript()
         generateModuleGradleScript()
         generatePropertiesFiles()
+
+        ConsoleLogger.log("Generating Android structures...")
         generateAndroidStructures()
     }
 
