@@ -2,7 +2,7 @@ group 'com.karaskiewicz.android'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.1.2-2'
+    ext.kotlin_version = '1.1.2-5'
     ext.jackson_version = '2.9.0.pr3'
     ext.argparser_version = '2.0.0'
 
@@ -14,7 +14,7 @@ buildscript {
     }
 }
 
-apply plugin: 'kotlin'
+apply plugin: "kotlin"
 
 repositories {
     jcenter()

@@ -6,6 +6,9 @@ fun templateRootGradle(config: GeneratorConfig) = """
 buildscript {
     repositories {
         jcenter()
+        maven {
+            url "https://maven.google.com"
+        }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:${config.standardConfig.android.plugin}"
@@ -16,6 +19,9 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven {
+            url "https://maven.google.com"
+        }
         maven {
             url "https://oss.sonatype.org/content/repositories/snapshots"
         }
