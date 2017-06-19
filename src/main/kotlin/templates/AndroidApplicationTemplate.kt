@@ -10,13 +10,13 @@ import timber.log.Timber
 
 class Application : Application() {
 
-    override fun onCreate() {
-        super.onCreate()
-        initializeLogs()
-    }
+  override fun onCreate() {
+    super.onCreate()
+    initializeLogs()
+  }
 
-    private fun initializeLogs() {
-        Timber.plant(Timber.DebugTree())
-    }
+  private fun initializeLogs() {
+    Timber.plant(Timber.DebugTree())
+  }
 }
 """.trimStart()
