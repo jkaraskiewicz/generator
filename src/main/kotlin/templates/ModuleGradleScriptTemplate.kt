@@ -32,6 +32,7 @@ the<AppExtension>().apply {
     }
     maybeCreate("release").apply {
       isMinifyEnabled = true
+      setProguardFiles(listOf(getDefaultProguardFile("proguard-android.txt"), "../proguard-rules.pro"))
     }
   }
 
@@ -47,6 +48,6 @@ the<AppExtension>().apply {
 }
 
 dependencies {
-  ${generator.generateDependencies()}
+${generator.generateDependencies()}
 }
 """.trimStart()

@@ -54,7 +54,7 @@ class FileSystemGenerator(private val config: GeneratorConfig) {
 
     File(resDirPath).mkdirs()
     File("$resDirPath/values").mkdir()
-    File("$resDirPath/mipmap-anydpi").mkdir()
+    File("$resDirPath/mipmap-xhdpi").mkdir()
     File("$resDirPath/layout").mkdir()
   }
 
@@ -72,8 +72,14 @@ class FileSystemGenerator(private val config: GeneratorConfig) {
     generateApplicationFile()
     generateActivityFile()
     generateAndroidManifest()
+    generateProguardRulesFile()
     prepareStandardResources()
     prepareActivityLayout()
+  }
+
+  private fun generateProguardRulesFile() {
+    val proguardRulesFile = File("$rootDirPath/proguard-rules.pro")
+    proguardRulesFile.createNewFile()
   }
 
   private fun generateAndroidManifest() {
@@ -120,7 +126,7 @@ class FileSystemGenerator(private val config: GeneratorConfig) {
     stringsFile.writeText(templateAndroidResourcesStrings(config))
 
     val launcherPath = Paths.get("assets/files/ic_launcher.png")
-    val targetLauncherPath = Paths.get("$resDirPath/mipmap-anydpi/ic_launcher.png")
+    val targetLauncherPath = Paths.get("$resDirPath/mipmap-xhdpi/ic_launcher.png")
     Files.copy(launcherPath, targetLauncherPath)
   }
 
