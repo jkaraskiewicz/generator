@@ -4,48 +4,49 @@ import generator.ModuleGradleScriptGenerator
 import util.GeneratorConfig
 
 fun templateModuleGradle(config: GeneratorConfig, generator: ModuleGradleScriptGenerator) = """
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+import com.android.build.gradle.AppExtension
 
-android {
-    compileSdkVersion ${config.standardConfig.android.sdk.compileSdk}
-    buildToolsVersion "${config.standardConfig.android.buildTools}"
+apply {
+  plugin("com.android.application")
+  plugin("kotlin-android")
+  plugin("kotlin-android-extensions")
+  plugin("kotlin-kapt")
+}
 
-    repositories {
-        mavenCentral()
-        maven {
-            url "https://jitpack.io"
-        }
+the<AppExtension>().apply {
+  compileSdkVersion(${config.standardConfig.android.sdk.compileSdk})
+  buildToolsVersion = "${config.standardConfig.android.buildTools}"
+
+  defaultConfig {
+    applicationId = "${config.applicationId}"
+    minSdkVersion(${config.standardConfig.android.sdk.minSdk})
+    targetSdkVersion(${config.standardConfig.android.sdk.targetSdk})
+    versionCode = 1
+    versionName = "1.0"
+  }
+
+  buildTypes {
+    maybeCreate("debug").apply {
+      isMinifyEnabled = false
+      isDebuggable = true
     }
-
-    defaultConfig {
-        applicationId "${config.applicationId}"
-        minSdkVersion ${config.standardConfig.android.sdk.minSdk}
-        targetSdkVersion ${config.standardConfig.android.sdk.targetSdk}
-        versionCode 1
-        versionName "1.0"
+    maybeCreate("release").apply {
+      isMinifyEnabled = true
     }
+  }
 
-    dexOptions {
-        preDexLibraries true
-        javaMaxHeapSize "4g"
+  sourceSets {
+    maybeCreate("main").apply {
+      java.srcDir("src/main/kotlin")
     }
+  }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    packagingOptions {
-        pickFirst "META-INF/LICENSE.txt"
-        pickFirst "META-INF/NOTICE.txt"
-    }
+  lintOptions {
+    isAbortOnError = false
+  }
 }
 
 dependencies {
-    ${generator.generateDependencies()}
+  ${generator.generateDependencies()}
 }
 """.trimStart()

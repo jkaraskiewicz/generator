@@ -2,5 +2,5 @@ package util
 
 object ConsoleLogger {
 
-    fun log(message: String) = println("-> $message")
+  fun log(message: String) = println("-> $message")
 }

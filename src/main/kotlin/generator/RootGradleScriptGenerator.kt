@@ -5,7 +5,7 @@ import util.GeneratorConfig
 
 class RootGradleScriptGenerator(private val config: GeneratorConfig) : Generator {
 
-    override fun generate(): String {
-        return templateRootGradle(config)
-    }
+  override fun generate(): String {
+    return templateRootGradle(config)
+  }
 }

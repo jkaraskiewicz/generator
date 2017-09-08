@@ -4,42 +4,37 @@ import util.GeneratorConfig
 
 fun templateRootGradle(config: GeneratorConfig) = """
 buildscript {
-    repositories {
-        jcenter()
-        maven {
-            url "https://maven.google.com"
-        }
-    }
-    dependencies {
-        classpath "com.android.tools.build:gradle:${config.standardConfig.android.plugin}"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${config.standardConfig.android.kotlin}"
-    }
+  repositories {
+    jcenter()
+    google()
+  }
+  dependencies {
+    classpath("com.android.tools.build:gradle:${config.standardConfig.android.plugin}")
+    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${config.standardConfig.android.kotlin}")
+  }
 }
 
 allprojects {
-    repositories {
-        jcenter()
-        maven {
-            url "https://maven.google.com"
-        }
-        maven {
-            url "https://oss.sonatype.org/content/repositories/snapshots"
-        }
-        maven {
-            url "https://jitpack.io"
-        }
-    }
+  repositories {
+    jcenter()
+    google()
+    maven("https://oss.sonatype.org/content/repositories/snapshots")
+    maven("https://jitpack.io")
+  }
 }
 
-task wrapper(type: Wrapper) {
+tasks {
+  "clean"(Delete::class) {
+    delete(buildDir)
+  }
+  "wrapper"(Wrapper::class) {
     gradleVersion = "${config.standardConfig.gradle.wrapper}"
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
+  }
 }
 """.trimStart()
 
 fun templateSettingsGradle() = """
+rootProject.buildFileName = "build.gradle.kts"
+
 include ':app'
 """.trimStart()
