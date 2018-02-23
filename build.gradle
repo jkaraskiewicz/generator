@@ -2,9 +2,9 @@ group 'com.karaskiewicz.android'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.1.4-3'
-    ext.jackson_version = '2.9.1'
-    ext.argparser_version = '2.0.0'
+    ext.kotlin_version = '1.2.21'
+    ext.jackson_version = '2.9.4'
+    ext.argparser_version = '2.0.4'
 
     repositories {
         mavenCentral()

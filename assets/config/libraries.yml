@@ -1,13 +1,13 @@
 entities:
   - name: "kotlin-stdlib"
-    version: "1.1.4-3"
+    version: "1.2.21"
     dependencies:
       - type: "implementation"
         values:
           - "org.jetbrains.kotlin:kotlin-stdlib"
 
   - name: "support"
-    version: "26.0.2"
+    version: "27.0.2"
     dependencies:
       - type: "implementation"
         values:
@@ -15,7 +15,7 @@ entities:
           - "com.android.support:support-annotations"
 
   - name: "dagger"
-    version: "2.11"
+    version: "2.14.1"
     dependencies:
       - type: "implementation"
         values:
@@ -24,48 +24,40 @@ entities:
         values:
           - "com.google.dagger:dagger-compiler"
 
-  - name: "butterknife"
-    version: "8.8.1"
-    dependencies:
-      - type: "implementation"
-        values:
-          - "com.jakewharton:butterknife"
-      - type: "kapt"
-        values:
-          - "com.jakewharton:butterknife-compiler"
-
   - name: "timber"
-    version: "4.5.1"
+    version: "4.6.0"
     dependencies:
       - type: "implementation"
         values:
           - "com.jakewharton.timber:timber"
 
   - name: "rxjava"
-    version: "2.1.3"
+    version: "2.1.9"
     dependencies:
       - type: "implementation"
         values:
           - "io.reactivex.rxjava2:rxjava"
 
   - name: "rxandroid"
-    version: "2.0.1"
+    version: "2.0.2"
     dependencies:
       - type: "implementation"
         values:
           - "io.reactivex.rxjava2:rxandroid"
 
   - name: "rxbinding"
-    version: "2.0.0"
+    version: "2.1.1"
     dependencies:
       - type: "implementation"
         values:
           - "com.jakewharton.rxbinding2:rxbinding"
           - "com.jakewharton.rxbinding2:rxbinding-support-v4"
           - "com.jakewharton.rxbinding2:rxbinding-appcompat-v7"
+          - "com.jakewharton.rxbinding2:rxbinding-design"
           - "com.jakewharton.rxbinding2:rxbinding-kotlin"
           - "com.jakewharton.rxbinding2:rxbinding-support-v4-kotlin"
           - "com.jakewharton.rxbinding2:rxbinding-appcompat-v7-kotlin"
+          - "com.jakewharton.rxbinding2:rxbinding-design-kotlin"
 
   - name: "inject"
     version: "1"
@@ -75,7 +67,7 @@ entities:
           - "javax.inject:javax.inject"
 
   - name: "annotation-api"
-    version: "1.3"
+    version: "1.3.1"
     dependencies:
       - type: "compileOnly"
         values:

@@ -6,14 +6,14 @@ import util.GeneratorConfig
 fun templateModuleGradle(config: GeneratorConfig, generator: ModuleGradleScriptGenerator) = """
 import com.android.build.gradle.AppExtension
 
-apply {
-  plugin("com.android.application")
-  plugin("kotlin-android")
-  plugin("kotlin-android-extensions")
-  plugin("kotlin-kapt")
+plugins {
+  id("com.android.application")
+  id("kotlin-android")
+  id("kotlin-android-extensions")
+  id("kotlin-kapt")
 }
 
-the<AppExtension>().apply {
+android {
   compileSdkVersion(${config.standardConfig.android.sdk.compileSdk})
   buildToolsVersion = "${config.standardConfig.android.buildTools}"
 

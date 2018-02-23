@@ -15,7 +15,7 @@ class ModuleGradleScriptGenerator(private val config: GeneratorConfig) : Generat
     config.librariesConfig.entities.forEach { (_, version, configurations) ->
       configurations.forEach { configuration ->
         configuration.values.forEach {
-          appendln("  \"${configuration.type.label}\"(\"$it:$version\")")
+          appendln("  ${configuration.type.label}(\"$it:$version\")")
         }
       }
       appendln()

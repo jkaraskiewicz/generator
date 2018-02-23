@@ -1,11 +1,12 @@
 package templates
 
 fun templateRootGitIgnore() = """
-.gradle
-.idea
 *.iml
-local.properties
-build/
-worktree/
+.gradle
+/local.properties
+/.idea
 .DS_Store
+/build
+/captures
+.externalNativeBuild
 """.trimStart()
